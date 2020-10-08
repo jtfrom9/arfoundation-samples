@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -455,7 +455,10 @@ namespace UnityEngine.XR.ARFoundation.Samples
             }
 
             var activeLoader = LoaderUtility.GetActiveLoader();
+            // AR_FOUNDATION_EDITOR_REMOTE: fix for Editor applied
+#if AR_FOUNDATION_EDITOR_REMOTE
             if(activeLoader && activeLoader.GetLoadedSubsystem<XRMeshSubsystem>() != null)
+#endif
             {
                 m_Meshing.interactable = true;
             }
